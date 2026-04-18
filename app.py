@@ -73,7 +73,7 @@ def main() -> None:
             temp_paths = []
             with tempfile.TemporaryDirectory() as tmp_dir:
                 for uploaded in discovery_files:
-                    temp_path = Path(tmp_dir) / Path(uploaded.name).name
+                    temp_path = Path(tmp_dir) / uploaded.name
                     temp_path.write_bytes(uploaded.getvalue())
                     temp_paths.append(str(temp_path))
 
@@ -94,7 +94,7 @@ def main() -> None:
 
     if osha_pdf and audit_document:
         with tempfile.TemporaryDirectory() as tmp_dir:
-            osha_path = Path(tmp_dir) / Path(osha_pdf.name).name
+            osha_path = Path(tmp_dir) / osha_pdf.name
             osha_path.write_bytes(osha_pdf.getvalue())
 
             audit_text = _extract_text_from_upload(audit_document)
