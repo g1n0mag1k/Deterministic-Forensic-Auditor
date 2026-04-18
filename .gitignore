@@ -218,3 +218,16 @@ __pycache__/
 tempfiles/
 audit_*.pdf
 discovery_*.pdf
+custody_manifest.json
+*.pdf
+*.csv
+*.xlsx
+*.html
+__pycache__/
+.venv/
+*.pyc
+*.pyo
+.env
+tempfiles/
+audit_*.pdf
+discovery_*.pdf
