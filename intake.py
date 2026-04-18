@@ -37,7 +37,7 @@ def generate_chain_of_custody(file_paths: list) -> dict:
     sorted_hashes = sorted(entry["hash"] for entry in entries)
 
     combined_hash = None
-    if len(sorted_hashes) > 1:
+    if sorted_hashes:
         combined_hash = hashlib.sha256("".join(sorted_hashes).encode("utf-8")).hexdigest()
 
     manifest = {

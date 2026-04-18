@@ -1,4 +1,5 @@
 import hashlib
+import os
 import tempfile
 import unittest
 from pathlib import Path
@@ -19,7 +20,6 @@ class TestIntake(unittest.TestCase):
 
             try:
                 # manifest is expected to be emitted in working directory
-                import os
                 os.chdir(tmp_path)
                 manifest = generate_chain_of_custody([str(file_a), str(file_b)])
             finally:

@@ -104,8 +104,8 @@ def main() -> None:
             findings = engine.search_violations(audit_text)
             findings_df = pd.DataFrame(findings)
 
-        if not findings_df.empty:
-            findings_df["bates_matches"] = ", ".join(bates_numbers)
+        if bates_numbers:
+            st.caption(f"Detected Bates numbers: {', '.join(bates_numbers)}")
 
         st.subheader("Findings")
         st.dataframe(findings_df if not findings_df.empty else pd.DataFrame(columns=["rule_text", "pdf_filename", "page_number", "matched_phrase"]))
