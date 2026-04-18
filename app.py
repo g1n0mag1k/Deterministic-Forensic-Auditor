@@ -108,7 +108,10 @@ def main() -> None:
             st.caption(f"Detected Bates numbers: {', '.join(bates_numbers)}")
 
         st.subheader("Findings")
-        st.dataframe(findings_df if not findings_df.empty else pd.DataFrame(columns=["rule_text", "pdf_filename", "page_number", "matched_phrase"]))
+        default_findings_df = pd.DataFrame(
+            columns=["rule_text", "pdf_filename", "page_number", "matched_phrase"]
+        )
+        st.dataframe(findings_df if not findings_df.empty else default_findings_df)
 
         st.markdown("### Human-in-the-Loop Verification (ABA Opinion 512)")
         verified = st.checkbox("I have manually verified these findings before legal use.")
